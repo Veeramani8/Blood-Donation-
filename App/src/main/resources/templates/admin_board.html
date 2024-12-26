@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Donor List</h2>
+    <table>
+        <tr>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Blood Type</th><th>Location</th><th>Actions</th>
+        </tr>
+        <tr th:each="donor : ${donors}">
+            <td th:text="${donor.name}">Name</td>
+            <td th:text="${donor.email}">Email</td>
+            <td th:text="${donor.phone}">Phone</td>
+            <td th:text="${donor.bloodType}">Blood Type</td>
+            <td th:text="${donor.location}">Location</td>
+            <td>
+                <a th:href="@{'/donor/edit/' + ${donor.id}}">Edit</a> |
+                <a th:href="@{'/donor/delete/' + ${donor.id}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Receiver List</h2>
+    <table>
+        <tr>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Blood Type</th><th>Location</th><th>Actions</th>
+        </tr>
+        <tr th:each="receiver : ${receivers}">
+            <td th:text="${receiver.name}">Name</td>
+            <td th:text="${receiver.email}">Email</td>
+            <td th:text="${receiver.phone}">Phone</td>
+            <td th:text="${receiver.bloodType}">Blood Type</td>
+            <td th:text="${receiver.location}">Location</td>
+            <td>
+                <a th:href="@{'/receiver/edit/' + ${receiver.id}}">Edit</a> |
+                <a th:href="@{'/receiver/delete/' + ${receiver.id}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

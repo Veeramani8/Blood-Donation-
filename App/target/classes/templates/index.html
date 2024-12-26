@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/welcome.css}">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to the Blood Donation App!</h1>
+        <p>Your one-stop platform for helping others through blood donation.</p>
+        <a class="btn" th:href="@{/donor/form}">Register as Donor</a>
+        <a class="btn" th:href="@{/receiver/form}">Search for Donor</a>
+        <a class="btn" th:href="@{/receiver/register}">Register as Receiver</a>
+        <a class="btn" th:href="@{/admin/login}">Admin</a>
+        
+    </div>
+</body>
+</html>

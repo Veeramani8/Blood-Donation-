@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Donor Form</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+       <h2 th:text="${donor.id == null ? 'Register New Donor' : 'Edit Donor'}"></h2>
+       <form th:action="@{${donor.id == null ? '/donor/save' : '/donor/update/' + donor.id}}" 
+              method="post" th:object="${donor}">
+     <input type="hidden" th:field="*{id}" />
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required><br>
+        
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required><br>
+        
+        <label>Phone:</label>
+        <input type="text" th:field="*{phone}" required><br>
+        
+        <label for="bloodType">Blood Type:</label>
+        <select th:field="*{bloodType}" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select><br>
+        
+        <label>Location:</label>
+        <input type="text" th:field="*{location}" required><br>
+        
+        
+        <div>
+                <button type="submit" th:text="${donor.id == null ? 'Submit' : 'Update'}"></button>
+            </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Donor List</title>
+            <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+    <h1>Matching Donors</h1>
+    <ul>
+        <li th:each="donor : ${donors}">
+            Name: <span th:text="${donor.name}"></span><br>
+            Blood Type: <span th:text="${donor.bloodType}"></span><br>
+            Location: <span th:text="${donor.location}"></span>
+        </li>
+    </ul>
+</body>
+</html>
